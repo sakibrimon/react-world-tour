@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Country.css';
 import CountryDetail from '../CountryDetail/CountryDetail';
 
-const Country = ({ country, handleVisitedCountry, handleVisitedFlags }) => {
+const Country = ({ country, handleVisitedCountry, handleRemovingVisitedCountry, handleAddingAfterTheLastOfItsKindInTheVisitedCountry, handleVisitedFlags }) => {
     const {name, flags, population, area, cca3} = country;
 
     const [visited, setVisited] = useState(false);
@@ -20,6 +20,10 @@ const Country = ({ country, handleVisitedCountry, handleVisitedFlags }) => {
             <p>area: {area}</p>
             <p><small>Code: {cca3}</small></p>
             <button onClick={() => handleVisitedCountry(country)}>Mark visited</button>
+            <br />
+            <button onClick={() => handleRemovingVisitedCountry(country)}>Remove from visited</button>
+            <br />
+            <button onClick={() => handleAddingAfterTheLastOfItsKindInTheVisitedCountry(country)}>Add after the last of its kind</button>
             <br />
             <button onClick={() => handleVisitedFlags(country.flags.png)}>Add Flag</button>
             <br />
